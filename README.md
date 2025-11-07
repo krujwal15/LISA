@@ -1,2 +1,4 @@
 # LISA
 Linux Integrated Service Automation
+As i am testing various behavior of the host system, while testing using lisa for storage related tests it requires azure environment as mentioned in the requirements, but use of lisa is for testing the storage behavior of the system storage but azure is cloud environment so when we run lisa inside the azure it tests the cloud storage but not the storage of system but in the testsuites they mentioned of azure requirement. So do you think is there any method testing storage related test cases using lisa without azure environment?
+When we dive into the microsoft's current status regarding this lisa is we got an information that: LISA's xfstests are focusing on cloud storages. We're working on enabling test cases on BareMetal as well, but it needs time.
