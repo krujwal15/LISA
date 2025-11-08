@@ -1,0 +1,35 @@
+name: ready default
+include:
+  - path: ./debug.yml
+
+variable:
+  - name: user_name
+    value: "lisatest"
+  - name: public_port
+    value: 22
+  - name: origin
+    value: tiers/tier.yml
+  - name: case
+    value: verify_kernel_config
+notifier:
+  - type: html
+
+environment:
+  environments:
+    - nodes:
+        - type: remote
+          public_address: $(public_address)
+          public_port: $(public_port)
+          username: $(user_name)
+          private_key_file: $(admin_private_key_file)
+          os_type: Debian
+          capabilities:
+            - NESTED_VIRTUALIZATION
+            - hibernation
+            - availability
+            - disk:
+                data_disk_count:
+                  min: 2
+
+platform:
+  - type: ready
