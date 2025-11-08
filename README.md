@@ -88,7 +88,7 @@ run "ssh-keygen -t rsa -b 4096 -f ~/.ssh/mariner_key"
 We want ssh keys for lisa to access our machine so let's setup ssh key values
 - Confirmed SSH key files: mariner_key (private), mariner_key.pub (public)
 - Verified SSH access to VM using the key.
-# Step5: Run the command to tes
+# Step5: Run the command to test
 run 
 python3 -m lisa -r microsoft/runbook/ready.yml -v "public_address:127.0.0.1" -v "user_name:rujwal" -v "admin_private_key_file:/home/rujwal/.ssh/mariner_key"    
 
