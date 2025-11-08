@@ -5,10 +5,10 @@ When we dive into the microsoft's current status regarding this lisa is we got a
 
 As LISA can be used in various platforms like azure, hyper v platforms here for the research purpose and to know the behaviour of lisa on the system it has been used on the debian 12 itself.
 Steps to start with host machine:
-Step1: Cloned LISA from GitHub using:
-  # git clone https://github.com/microsoft/lisa.git
+# Step1: Cloned LISA from GitHub using:
+git clone https://github.com/microsoft/lisa.git
 - Navigated into the LISA directory:
-  # cd lisa
+run "cd lisa"
 - Installed LISA dependencies by creating a virtual environment and using pip with pyproject.toml and additional azure dependencies.
 - In older version we will be having file named requirements.txt for installing dependencies for lisa to run.
 - Dependencies inside the pyproject.toml are : dependencies = [
@@ -30,7 +30,8 @@ Step1: Cloned LISA from GitHub using:
     "requests ~= 2.32.4",
 ]
 - But in newer version we have all dependencies in a pyproject.toml, then execute below commands to get dependencies of lisa and azure dependencies in requirements.txt and another.txt respectively.
-# pip install --break-system-packages -r requirements.txt
+# Step 2: Install required packages
+run "pip install --break-system-packages -r requirements.txt"
 You get installed with: assertpy ~= 1.1
 func-timeout ~= 4.3.5
 dataclasses-json ~= 0.5.2
@@ -61,8 +62,8 @@ azure-keyvault-certificates ~= 4.7.0
 pycdlib ~= 1.12.0
 cachetools ~= 5.2.0
 Pillow <= 11.1.0
-Add the below dependencies in the newly created text file named another.txt
-# pip install –break-system-packages -r another.txt
+# Step 3: Add the below dependencies in the newly created text file named another.txt
+run "pip install –break-system-packages -r another.txt"
 You get installed with:
 azure-identity~=1.17.0b1
 azure-mgmt-compute~=30.5.0
@@ -82,10 +83,13 @@ msrestazure~=0.6.4
 cachetools~=5.2.0
 Pillow<=11.1.0
 - Created a `requirements.txt` and ‘anothermanually from pip errors encountered (e.g., dataclasses_json, pluggy, msrestazure, libvirt).
-We want ssh keys for lisa to access our machine so ley's setup ssh key values
-SSH key generated with:
-# ssh-keygen -t rsa -b 4096 -f ~/.ssh/mariner_key
+# Step 4: SSH key generated with:
+run "ssh-keygen -t rsa -b 4096 -f ~/.ssh/mariner_key"
+We want ssh keys for lisa to access our machine so let's setup ssh key values
 - Confirmed SSH key files: mariner_key (private), mariner_key.pub (public)
 - Verified SSH access to VM using the key.
-# python3 -m lisa -r microsoft/runbook/ready.yml -v "public_address:127.0.0.1" -v "user_name:rujwal" -v "admin_private_key_file:/home/rujwal/.ssh/mariner_key"
+# Step5: Run the command to tes
+run 
+python3 -m lisa -r microsoft/runbook/ready.yml -v "public_address:127.0.0.1" -v "user_name:rujwal" -v "admin_private_key_file:/home/rujwal/.ssh/mariner_key"    
+
 After running this, lisa access the machine and for default verify_cpu_count test case will be tested. 
